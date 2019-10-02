@@ -19,23 +19,6 @@ for i in ec2_re.images.filter(Filters=[{'Name': 'tag:amitag', 'Values':['yes']},
             # print(dir(snapshot))
             snapshotdelete=snapshot.delete()
 
-    
-# for snap in amidelete['Images'][0]['BlockDeviceMappings']:
-#     print(dir(snap))
-    # i.deregister()
-    # ami=ec2_re.Image(id=i.id)
-    # ami.deregister()
-    # ami.deregister_image(delete_snapshot=True)
-    # print(dir(i))
-    # if i.tags==[{'Name': 'tag:amitag', 'Values':['yes']}]:
-    #     print(i.id)
-    # # for tag in i.tags:
-    # #     if 'amitag' in tag['Key']:
-    # #         print(tag)
 
 
             
-
-        
-    # print(dir(i))
-    # count +=count
