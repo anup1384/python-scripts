@@ -44,7 +44,7 @@ def deleteImage(x):
                     snapshotdelete=snapshot.delete()
         else:
             # this section will have all snapshots which is created before 10 days
-            print ("Only Deleting AMI which is older that", days)
+            print ("Only Deleting AMI which is older than", days)
 
 
 
