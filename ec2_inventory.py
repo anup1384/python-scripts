@@ -7,7 +7,7 @@ ec2_re=boto3.resource(service_name="ec2", region_name="ap-south-1")
 #print(dir(ec2_re))
 header_csv=['S_No','Instance-Name','Instance-ID','Private-IP','Instance-Type','Instance-Role','Environment']
 S_No=1
-fo=open("ec2_inv.csv","wb")
+fo=open("ec2_inv.csv","w")
 csv_w=csv.writer(fo)
 csv_w.writerow(header_csv)
 for each_in in ec2_re.instances.all():
@@ -29,7 +29,7 @@ for each_in in ec2_re.instances.all():
                         
     print (S_No,name,in_id,in_ip,in_type,role,environment)
     csv_w.writerow([S_No,name,in_id,in_ip,in_type,role,environment])
-    S_No +=S_No
+    S_No = S_No + 1 
 #    pprint (dir(each_in))
 #   break
 fo.close()
