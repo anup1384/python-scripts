@@ -1,0 +1,16 @@
+import boto3
+session = boto3.Session(profile_name='default')
+ec2 = session.client('ec2', region_name='ap-south-1')
+volumes = ec2.describe_volumes()
+def ebs_gp3_conv():
+    for volume in volumes['Volumes']:
+        if volume['VolumeType'] == 'gp2':
+            ec2.modify_volume(VolumeId=volume['VolumeId'], VolumeType='gp3')
+            print(f'Volume {volume["VolumeId"]} {volume["VolumeType"]} is modified to gp3')
+            print(f"Deleting EBS Volumes {volume['VolumeId']}")
+            # delete_ebs(volume['VolumeId'])
+
+# def delete_ebs(volumeId):
+#     ec2.delete_volume(VolumeId=volumeId)
+
+ebs_gp3_conv()
