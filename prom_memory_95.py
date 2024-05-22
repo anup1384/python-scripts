@@ -20,7 +20,7 @@ SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/T918992792/ABCFR1234/Anup1
 POD_FILE = 'memory_95_deleted_pods.txt'
 
 # Prometheus query
-thresold_value = '85'
+thresold_value = '95'
 QUERY = f'((sum (container_memory_working_set_bytes{{image!="",container!="POD", namespace=~"prod"}}) by (pod)) / (sum(kube_pod_container_resource_requests{{resource="memory", namespace=~"prod"}}) by (pod)) ) * 100 >= {thresold_value}'
 
 # Function to query Prometheus
